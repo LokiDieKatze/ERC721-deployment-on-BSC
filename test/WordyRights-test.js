@@ -6,7 +6,6 @@ describe('WordyRights', function () {
   const NAME = 'WordyRights';
   const SYMBOL = 'WYR';
   const hash1 = '0xd42e479d3682d1e97562daf080a04a4388dd7445cc9175e60b3c9e3efa2f5d5d';
-  //const hash2 = '0x7b2198046bc1068dba9a8cf1cac3da1322f94655a94c2e9167ddcee3314199a3';
 
   beforeEach(async function () {
     [dev, alice, bob] = await ethers.getSigners();
@@ -17,10 +16,10 @@ describe('WordyRights', function () {
 
   describe('Deployment', function () {
     it('Should have name WordyRights', async function () {
-      expect(await wordyrights.name()).to.equal('WordyRights');
+      expect(await wordyrights.name()).to.equal(NAME);
     });
     it('Should have symbol WYR', async function () {
-      expect(await wordyrights.symbol()).to.equal('WYR');
+      expect(await wordyrights.symbol()).to.equal(SYMBOL);
     });
     it('Should give Minter Role to dev', async function () {
       expect(await wordyrights.hasRole(ethers.utils.id('MINTER_ROLE'), dev.address)).to.equal(true);
